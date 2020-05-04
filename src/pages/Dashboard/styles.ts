@@ -93,3 +93,13 @@ export const TableContainer = styled.section`
     }
   }
 `;
+
+export const Options = styled.div`
+  display: flex;
+  align-items: center;
+
+  button {
+    border: none;
+    color: #e83f5b;
+  }
+`;

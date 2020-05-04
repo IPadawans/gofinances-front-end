@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+}
+interface NavigationLinkProps {
+  selected?: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -15,22 +19,27 @@ export const Container = styled.div<ContainerProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+`;
 
-    nav {
-      a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        transition: opacity 0.2s;
+export const NavigationLink = styled(Link)<NavigationLinkProps>`
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.2s;
 
-        & + a {
-          margin-left: 32px;
-        }
+  ${({ selected }) =>
+    selected &&
+    css`
+      border-bottom: 2px solid #ff872c;
+      padding-bottom: 10px;
+    `}
 
-        &:hover {
-          opacity: 0.6;
-        }
-      }
-    }
+  & + a {
+    margin-left: 32px;
+  }
+
+  &:hover {
+    opacity: 0.6;
   }
 `;
